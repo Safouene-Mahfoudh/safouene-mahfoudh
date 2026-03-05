@@ -70,21 +70,21 @@
   }
 
   .avatar {
-    width: 68px; height: 68px;
+    width: 78px; height: 78px;
     border-radius: 16px;
     background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     flex-shrink: 0;
   }
 
-  .avatar-initials {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
+  .avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
   }
 
   .identity {}
@@ -231,7 +231,9 @@
 <body>
 <div class="card">
   <div class="hero">
-    <div class="avatar"><span class="avatar-initials">SM</span></div>
+    <div class="avatar">
+      <img src="photo.jpg" alt="Safouene Mahfoudh">
+    </div>
     <div class="identity">
       <div class="name">Safouene<br><span>Mahfoudh</span></div>
       <div class="title">IoT Developer · Industrie 4.0</div>
@@ -245,11 +247,11 @@
   </div>
 
   <div class="links">
-    <a href="mailto:safouene.mahfoudh@gmail.com" class="link-item">
+    <a href="/cdn-cgi/l/email-protection#d9aab8bfb6acbcb7bcf7b4b8b1bfb6acbdb199beb4b8b0b5f7bab6b4" class="link-item">
       <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
       <div class="link-text">
         <span class="link-label">Email</span>
-        <span class="link-value">safouene.mahfoudh@gmail.com</span>
+        <span class="link-value"><span class="__cf_email__" data-cfemail="3d4e5c5b524858535813505c555b524859557d5a505c5451135e5250">[email&#160;protected]</span></span>
       </div>
     </a>
     <div class="link-item" onclick="openContact()">
@@ -282,16 +284,8 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function openContact() {
     const vcard = ['BEGIN:VCARD','VERSION:3.0','FN:Safouene Mahfoudh','N:Mahfoudh;Safouene;;;','TITLE:IoT Developer','ORG:Industrie 4.0','TEL;TYPE=CELL:+33600000000','EMAIL:safouene.mahfoudh@gmail.com','URL:https://tonsite.com','URL;TYPE=LinkedIn:https://linkedin.com/in/tonprofil','END:VCARD'].join('\r\n');
     const blob = new Blob([vcard], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'Safouene_Mahfoudh.vcf';
-    document.body.appendChild(a); a.click();
-    document.body.removeChild(a); URL.revokeObjectURL(url);
-  }
-</script>
-</body>
-</html>
+    const url = UR
