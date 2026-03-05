@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safouene Mahfoudh — Modèle 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, #1a0533 0%, #0d1b4b 50%, #003355 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background orbs */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -10%; left: -10%;
+    width: 50%; height: 50%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(120,40,200,0.25), transparent 70%);
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -10%; right: -10%;
+    width: 50%; height: 50%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,140,255,0.2), transparent 70%);
+    pointer-events: none;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 360px;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+    animation: appear 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes appear {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .hero {
+    padding: 32px 28px 26px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .avatar {
+    width: 68px; height: 68px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .avatar-initials {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .identity {}
+
+  .name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .name span {
+    background: linear-gradient(90deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .title {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 6px;
+  }
+
+  /* Pills row */
+  .pills {
+    display: flex;
+    gap: 8px;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Links */
+  .links {
+    padding: 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 10px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.75);
+    border-radius: 12px;
+    transition: all 0.18s;
+    cursor: pointer;
+  }
+
+  .link-item:hover, .link-item:active {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+  }
+
+  .link-item:hover .link-icon, .link-item:active .link-icon {
+    background: rgba(167,139,250,0.2);
+    border-color: rgba(167,139,250,0.4);
+  }
+
+  .link-item:hover .link-icon svg, .link-item:active .link-icon svg {
+    fill: #a78bfa;
+  }
+
+  .link-icon {
+    width: 34px; height: 34px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.18s;
+  }
+
+  .link-icon svg {
+    width: 14px; height: 14px;
+    fill: rgba(255,255,255,0.4);
+    transition: fill 0.18s;
+  }
+
+  .link-text { display: flex; flex-direction: column; gap: 1px; }
+
+  .link-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    font-weight: 400;
+  }
+
+  .link-value { font-size: 13px; font-weight: 300; }
+
+  /* Footer */
+  .footer {
+    margin: 0 20px 20px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer span {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    font-weight: 300;
+  }
+
+  .footer-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #a78bfa;
+    box-shadow: 0 0 8px #a78bfa;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.2} }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hero">
+    <div class="avatar"><span class="avatar-initials">SM</span></div>
+    <div class="identity">
+      <div class="name">Safouene<br><span>Mahfoudh</span></div>
+      <div class="title">IoT Developer · Industrie 4.0</div>
+    </div>
+  </div>
+
+  <div class="pills">
+    <span class="pill">IoT</span>
+    <span class="pill">Industrie 4.0</span>
+    <span class="pill">Embarqué</span>
+  </div>
+
+  <div class="links">
+    <a href="mailto:safouene.mahfoudh@gmail.com" class="link-item">
+      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      <div class="link-text">
+        <span class="link-label">Email</span>
+        <span class="link-value">safouene.mahfoudh@gmail.com</span>
+      </div>
+    </a>
+    <div class="link-item" onclick="openContact()">
+      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
+      <div class="link-text">
+        <span class="link-label">Téléphone</span>
+        <span class="link-value">+33 6 00 00 00 00</span>
+      </div>
+    </div>
+    <a href="https://linkedin.com/in/tonprofil" target="_blank" class="link-item">
+      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zm-1.3-8a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm9.3 8h-2.5v-3.8c0-1-.8-1.2-1-1.2s-1 .1-1 1.2V17h-2.5v-7H13v1s.8-1 2.5-1 2.5 1.5 2.5 3.5V17z"/></svg></div>
+      <div class="link-text">
+        <span class="link-label">LinkedIn</span>
+        <span class="link-value">linkedin.com/in/tonprofil</span>
+      </div>
+    </a>
+    <a href="https://tonsite.com" target="_blank" class="link-item">
+      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+      <div class="link-text">
+        <span class="link-label">Site Web</span>
+        <span class="link-value">tonsite.com</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="footer">
+    <span>IoT · Industrie 4.0</span>
+    <div class="footer-dot"></div>
+    <span>2025</span>
+  </div>
+</div>
+
+<script>
+  function openContact() {
+    const vcard = ['BEGIN:VCARD','VERSION:3.0','FN:Safouene Mahfoudh','N:Mahfoudh;Safouene;;;','TITLE:IoT Developer','ORG:Industrie 4.0','TEL;TYPE=CELL:+33600000000','EMAIL:safouene.mahfoudh@gmail.com','URL:https://tonsite.com','URL;TYPE=LinkedIn:https://linkedin.com/in/tonprofil','END:VCARD'].join('\r\n');
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'Safouene_Mahfoudh.vcf';
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>
