@@ -20,7 +20,6 @@
     overflow: hidden;
   }
 
-  /* Background orbs */
   body::before {
     content: '';
     position: fixed;
@@ -70,21 +69,20 @@
   }
 
   .avatar {
-    width: 78px; height: 78px;
+    width: 78px;
+    height: 78px;
     border-radius: 16px;
     background: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
   }
 
   .avatar img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 14px;
+    display: block;
   }
 
   .identity {}
@@ -113,7 +111,6 @@
     margin-top: 6px;
   }
 
-  /* Pills row */
   .pills {
     display: flex;
     gap: 8px;
@@ -133,7 +130,6 @@
     color: rgba(255,255,255,0.5);
   }
 
-  /* Links */
   .links {
     padding: 10px 20px 20px;
     display: flex;
@@ -151,6 +147,11 @@
     border-radius: 12px;
     transition: all 0.18s;
     cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: left;
   }
 
   .link-item:hover, .link-item:active {
@@ -185,7 +186,11 @@
     transition: fill 0.18s;
   }
 
-  .link-text { display: flex; flex-direction: column; gap: 1px; }
+  .link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
 
   .link-label {
     font-size: 8px;
@@ -195,9 +200,12 @@
     font-weight: 400;
   }
 
-  .link-value { font-size: 13px; font-weight: 300; }
+  .link-value {
+    font-size: 13px;
+    font-weight: 300;
+    color: inherit;
+  }
 
-  /* Footer */
   .footer {
     margin: 0 20px 20px;
     padding: 10px 16px;
@@ -225,13 +233,15 @@
     animation: blink 2s ease-in-out infinite;
   }
 
-  @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.2} }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 </style>
 </head>
 <body>
 <div class="card">
+
   <div class="hero">
     <div class="avatar">
+      <!-- Remplace "photo.jpg" par le nom de ton fichier photo -->
       <img src="photo.jpg" alt="Safouene Mahfoudh">
     </div>
     <div class="identity">
@@ -247,34 +257,47 @@
   </div>
 
   <div class="links">
-    <a href="/cdn-cgi/l/email-protection#d9aab8bfb6acbcb7bcf7b4b8b1bfb6acbdb199beb4b8b0b5f7bab6b4" class="link-item">
-      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+
+    <a href="mailto:safouene.mahfoudh@gmail.com" class="link-item">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
       <div class="link-text">
         <span class="link-label">Email</span>
-        <span class="link-value"><span class="__cf_email__" data-cfemail="3d4e5c5b524858535813505c555b524859557d5a505c5451135e5250">[email&#160;protected]</span></span>
+        <span class="link-value">safouene.mahfoudh@gmail.com</span>
       </div>
     </a>
-    <div class="link-item" onclick="openContact()">
-      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
+
+    <button class="link-item" onclick="openContact()">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </div>
       <div class="link-text">
         <span class="link-label">Téléphone</span>
         <span class="link-value">+33 6 00 00 00 00</span>
       </div>
-    </div>
+    </button>
+
     <a href="https://linkedin.com/in/tonprofil" target="_blank" class="link-item">
-      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zm-1.3-8a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm9.3 8h-2.5v-3.8c0-1-.8-1.2-1-1.2s-1 .1-1 1.2V17h-2.5v-7H13v1s.8-1 2.5-1 2.5 1.5 2.5 3.5V17z"/></svg></div>
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zm-1.3-8a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm9.3 8h-2.5v-3.8c0-1-.8-1.2-1-1.2s-1 .1-1 1.2V17h-2.5v-7H13v1s.8-1 2.5-1 2.5 1.5 2.5 3.5V17z"/></svg>
+      </div>
       <div class="link-text">
         <span class="link-label">LinkedIn</span>
         <span class="link-value">linkedin.com/in/tonprofil</span>
       </div>
     </a>
+
     <a href="https://tonsite.com" target="_blank" class="link-item">
-      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      </div>
       <div class="link-text">
         <span class="link-label">Site Web</span>
         <span class="link-value">tonsite.com</span>
       </div>
     </a>
+
   </div>
 
   <div class="footer">
@@ -282,10 +305,34 @@
     <div class="footer-dot"></div>
     <span>2025</span>
   </div>
+
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function openContact() {
-    const vcard = ['BEGIN:VCARD','VERSION:3.0','FN:Safouene Mahfoudh','N:Mahfoudh;Safouene;;;','TITLE:IoT Developer','ORG:Industrie 4.0','TEL;TYPE=CELL:+33600000000','EMAIL:safouene.mahfoudh@gmail.com','URL:https://tonsite.com','URL;TYPE=LinkedIn:https://linkedin.com/in/tonprofil','END:VCARD'].join('\r\n');
+    const vcard = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'FN:Safouene Mahfoudh',
+      'N:Mahfoudh;Safouene;;;',
+      'TITLE:IoT Developer',
+      'ORG:Industrie 4.0',
+      'TEL;TYPE=CELL:+33600000000',
+      'EMAIL:safouene.mahfoudh@gmail.com',
+      'URL:https://tonsite.com',
+      'URL;TYPE=LinkedIn:https://linkedin.com/in/tonprofil',
+      'END:VCARD'
+    ].join('\r\n');
     const blob = new Blob([vcard], { type: 'text/vcard' });
-    const url = UR
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Safouene_Mahfoudh.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>
